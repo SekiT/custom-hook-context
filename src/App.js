@@ -1,23 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
-import { useMyState, updateState } from './useMyState';
+import { useMyState } from './useMyState';
 
 function Foo() {
-  const state = useMyState();
+  const [state, setState] = useMyState();
   return (
     <div>
       State is currently: {state}
-      <button onClick={() => updateState(state + 1)}>+1</button>
+      <button onClick={() => setState(state + 1)}>+1</button>
     </div>
   )
 }
 
 function Bar() {
-  const state = useMyState();
+  const [state, setState] = useMyState();
   return (
     <div>
       State is currently: {state}
-      <button onClick={() => updateState(state + 10)}>+10</button>
+      <button onClick={() => setState(state + 10)}>+10</button>
     </div>
   )
 }
