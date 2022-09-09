@@ -1,5 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import { useMyState, updateState } from './useMyState';
+
+function Foo() {
+  const state = useMyState();
+  return (
+    <div>
+      State is currently: {state}
+      <button onClick={() => updateState(state + 1)}>+1</button>
+    </div>
+  )
+}
+
+function Bar() {
+  const state = useMyState();
+  return (
+    <div>
+      State is currently: {state}
+      <button onClick={() => updateState(state + 10)}>+10</button>
+    </div>
+  )
+}
 
 function App() {
   return (
@@ -17,6 +38,8 @@ function App() {
         >
           Learn React
         </a>
+        <Foo />
+        <Bar />
       </header>
     </div>
   );
