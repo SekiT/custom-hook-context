@@ -1,23 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
 import { useMyState } from './useMyState';
+import { useUnsyncedState } from './useUnsyncedState';
 
 function Foo() {
-  const [state, setState] = useMyState();
+  const [myState, setMyState] = useMyState();
+  const [unsyncedState, setUnsyncedState] = useUnsyncedState();
   return (
     <div>
-      State is currently: {state}
-      <button onClick={() => setState(state + 1)}>+1</button>
+      myState: {myState}
+      <button onClick={() => setMyState(myState + 1)}>myState +1</button>
+      unsyncedState: {unsyncedState}
+      <button onClick={() => setUnsyncedState(unsyncedState + 1)}>unsyncedState +1</button>
     </div>
   )
 }
 
 function Bar() {
-  const [state, setState] = useMyState();
+  const [myState, setMyState] = useMyState();
+  const [unsyncedState, setUnsyncedState] = useUnsyncedState();
   return (
     <div>
-      State is currently: {state}
-      <button onClick={() => setState(state + 10)}>+10</button>
+      myState: {myState}
+      <button onClick={() => setMyState(myState + 10)}>myState +10</button>
+      unsyncedState: {unsyncedState}
+      <button onClick={() => setUnsyncedState(unsyncedState + 10)}>unsyncedState +10</button>
     </div>
   )
 }
