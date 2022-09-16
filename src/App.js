@@ -2,16 +2,20 @@ import logo from './logo.svg';
 import './App.css';
 import { useMyState } from './useMyState';
 import { useUnsyncedState } from './useUnsyncedState';
+import { useLocalState } from './useLocalState';
 
 function Foo() {
   const [myState, setMyState] = useMyState();
   const [unsyncedState, setUnsyncedState] = useUnsyncedState();
+  const [localState, setLocalState] = useLocalState();
   return (
     <div>
       myState: {myState}
       <button onClick={() => setMyState(myState + 1)}>myState +1</button>
       unsyncedState: {unsyncedState}
       <button onClick={() => setUnsyncedState(unsyncedState + 1)}>unsyncedState +1</button>
+      localState: {localState}
+      <button onClick={() => setLocalState(localState + 1)}>localState +1</button>
     </div>
   )
 }
@@ -19,12 +23,15 @@ function Foo() {
 function Bar() {
   const [myState, setMyState] = useMyState();
   const [unsyncedState, setUnsyncedState] = useUnsyncedState();
+  const [localState, setLocalState] = useLocalState();
   return (
     <div>
       myState: {myState}
       <button onClick={() => setMyState(myState + 10)}>myState +10</button>
       unsyncedState: {unsyncedState}
       <button onClick={() => setUnsyncedState(unsyncedState + 10)}>unsyncedState +10</button>
+      localState: {localState}
+      <button onClick={() => setLocalState(localState + 10)}>localState +10</button>
     </div>
   )
 }
